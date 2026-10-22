@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rate CS Teaching Staff</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Rate CS Teaching Staff</h1>
+    <a href="/ratings/new">Submit Rating</a>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Role Type</th>
+        <th>Overall Score</th>
+        <th>Details</th>
+      </tr>
+
+      <tr th:each="rating : ${ratings}">
+        <td th:text="${rating.name}"></td>
+        <td th:text="${rating.roleType}"></td>
+        <td th:text="${rating.overallScore}"></td>
+        <td>
+          <a th:href="@{/ratings/detail(id=${rating.id})}">View Details</a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

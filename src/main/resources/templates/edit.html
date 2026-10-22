@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Rating</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Edit Rating</h1>
+    <form action="/ratings/update" method="post" th:object="${rating}">
+      <input type="hidden" name="id" th:field="*{id}" />
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" th:field="*{name}" required />
+      <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" th:field="*{email}" required />
+      <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+      <label for="roleType">Role:</label>
+      <select id="roleType" name="roleType" th:field="*{roleType}" required>
+        <option value="TA">TA</option>
+        <option value="PROF">PROF</option>
+        <option value="INSTRUCTOR">INSTRUCTOR</option>
+        <option value="STAFF">STAFF</option>
+      </select>
+      <p th:if="${#fields.hasErrors('roleType')}" th:errors="*{roleType}"></p>
+
+      <label for="clarity">Clarity:</label>
+      <input type="number" id="clarity" name="clarity" min="1" max="10" th:field="*{clarity}" required />
+      <p th:if="${#fields.hasErrors('clarity')}" th:errors="*{clarity}"></p>
+
+      <label for="niceness">Niceness:</label>
+      <input type="number" id="niceness" name="niceness" min="1" max="10" th:field="*{niceness}" required />
+      <p th:if="${#fields.hasErrors('niceness')}" th:errors="*{niceness}"></p>
+
+      <label for="knowledgeableScore">Knowledgeable Score:</label>
+      <input type="number" id="knowledgeableScore" name="knowledgeableScore" min="1" max="10" th:field="*{knowledgeableScore}" required />
+      <p th:if="${#fields.hasErrors('knowledgeableScore')}" th:errors="*{knowledgeableScore}"></p>
+
+      <label for="comment">Comment:</label>
+      <input type="text" id="comment" name="comment" th:field="*{comment}" />
+      <p th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></p>
+
+      <button type="submit">Update Rating</button>
+    </form>
+  </body>
+</html>
