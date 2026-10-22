@@ -78,15 +78,15 @@ public class StaffRating {
         return roleType;
     }
 
-    public int getClarity() {
+    public Integer getClarity() {
         return clarity;
     }
 
-    public int getNiceness() {
+    public Integer getNiceness() {
         return niceness;
     }
 
-    public int getKnowledgeableScore() {
+    public Integer getKnowledgeableScore() {
         return knowledgeableScore;
     }
     
